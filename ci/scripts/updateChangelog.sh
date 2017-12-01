@@ -7,7 +7,7 @@ git clone lf-git lf-git-changed
 CHANGELOG_FILE="CHANGELOG.md"
 COMMIT_URL="https://github.com/pivotal/LicenseFinder/commit/"
 
-TAGS=( "Added" "Fixed" "Changed" "Deprecated" "Removed" "Security" )
+TAGS=( "Added" "ADDED" "Fixed" "FIXED" "Changed" "CHANGED" "Deprecated" "DEPRECATED" "Removed" "REMOVED" "Security" "SECURITY" )
 CONTRIBUTORS=( "Shane Lattanzio" "Daniil Kouznetsov" "Andy Shen" "Li Sheng Tai" "Ryan Collins" "Vikram Yadav" )
 
 OLD="v$(cat ./lf-release/version)"
@@ -19,12 +19,13 @@ LOG=$(echo "# [$VERSION] / $(date +%Y-%m-%d)\n")
 
 cd lf-git-changed
 
-for i in ${TAGS[@]}; do
-    GIT_LOG=$'\n'$(git log "$OLD"...HEAD --pretty=format:"%H%n%b - [%h]($COMMIT_URL%H) - %an%n%n"| grep -E -i "\[$i\] .*" | sort | sed -e "s/\[$i\]/\*/g")
-
+for ((i = 0; i < ${#TAGS[@]}; i++)); do
+    GIT_LOG=$'\n'$(git log "v3.0.1"...HEAD --pretty=format:"%H%n%s - [%h]($COMMIT_URL%H) - %an%n%n"| grep -E "\[${TAGS[$i]}\] .*" | sort | sed -e "s/\[${TAGS[$i]}\]/\*/g")
     # Only add section information if it has content
-    if [[ $GIT_LOG =~ "." ]]; then
-        LOG="$LOG"$'\n'$(echo "### $i")"$GIT_LOG\n"
+    if [[ $i -ne $[${#TAGS[@]}-1] && $GIT_LOG =~ "." && $i -gt 0 && $(echo "${TAGS[$i]}" | grep -qi "${TAGS[$i - 1]}" && echo same || echo different) == "same" ]]; then
+        LOG="$LOG""$GIT_LOG\n"
+    elif [[ $GIT_LOG =~ "." ]]; then
+        LOG="$LOG"$'\n'$(echo "### ${TAGS[$i]}")"$GIT_LOG\n"
     fi
 done
 
