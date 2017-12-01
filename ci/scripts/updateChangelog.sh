@@ -25,7 +25,7 @@ for ((i = 0; i < ${#TAGS[@]}; i++)); do
         HEADER_EXISTS=$(echo "$LOG" | grep -qi "${TAGS[$i - 1]}" && echo exists || echo dne)
     fi
 
-    GIT_LOG=$'\n'$(git log "v3.0.1"...HEAD --pretty=format:"%H%n%s - [%h]($COMMIT_URL%H) - %an%n%n"| grep -E "\[${TAGS[$i]}\] .*" | sort | sed -e "s/\[${TAGS[$i]}\]/\*/g")
+    GIT_LOG=$'\n'$(git log "$OLD"...HEAD --pretty=format:"%H%n%s - [%h]($COMMIT_URL%H) - %an%n%n"| grep -E "\[${TAGS[$i]}\] .*" | sort | sed -e "s/\[${TAGS[$i]}\]/\*/g")
 
     # Only add section information if it has content
     if [[ $i -ne $[${#TAGS[@]}-1] && $GIT_LOG =~ "." && $i -gt 0 && "$TAG_COMPARE" == "same" && "$HEADER_EXISTS" == "exists"  ]]; then
