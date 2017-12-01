@@ -30,6 +30,10 @@
 * Update task ymls yet again - [c49906b](https://github.com/pivotal/LicenseFinder/commit/c49906bfbddc64f60b9a641e7633f2ccb70e6f22) 
 * Version number for testing - [fca470a](https://github.com/pivotal/LicenseFinder/commit/fca470af94c5e4b9fa8a498b1274bff743f44a2e) 
 
+### DEPRECATED
+* scripts - [8c1b3ad](https://github.com/pivotal/LicenseFinder/commit/8c1b3ad5b0661aaba80d9b35d79089f0ccc6f014) 
+
+### REMOVED
 * Errors - [af2542d](https://github.com/pivotal/LicenseFinder/commit/af2542dd86e864e36a58794429338c0ee0042020) 
 
 # [4.0.2] / 2017-11-16
@@ -553,5 +557,6 @@ Bugfixes:
 [3.0.2]: https://github.com/pivotal/LicenseFinder/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/pivotal/LicenseFinder/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/pivotal/LicenseFinder/compare/v2.1.2...v3.0.0
+[4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
 [4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
 [4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
