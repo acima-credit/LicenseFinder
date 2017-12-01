@@ -22,7 +22,7 @@ cd lf-git-changed
 for ((i = 0; i < ${#TAGS[@]}; i++)); do
     GIT_LOG=$'\n'$(git log "v3.0.1"...HEAD --pretty=format:"%H%n%s - [%h]($COMMIT_URL%H) - %an%n%n"| grep -E "\[${TAGS[$i]}\] .*" | sort | sed -e "s/\[${TAGS[$i]}\]/\*/g")
     # Only add section information if it has content
-    if [[ $i -ne $[${#TAGS[@]}-1] && $GIT_LOG =~ "." && $i -gt 0 && $(echo "${TAGS[$i]}" | grep -qi "${TAGS[$i - 1]}" && echo same || echo different) == "same" ]]; then
+    if [[ $i -ne $[${#TAGS[@]}-1] && $GIT_LOG =~ "." && $i -gt 0 && $(echo "${TAGS[$i]}" | grep -qi "${TAGS[$i - 1]}" && echo same || echo different) == "same" && $(echo "$LOG" | grep -qi "${TAGS[$i - 1]}" && echo exists || echo dne) == "exists"  ]]; then
         LOG="$LOG""$GIT_LOG\n"
     elif [[ $GIT_LOG =~ "." ]]; then
         LOG="$LOG"$'\n'$(echo "### ${TAGS[$i]}")"$GIT_LOG\n"
