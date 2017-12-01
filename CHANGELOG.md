@@ -1,3 +1,44 @@
+# [4.0.3] / 2017-12-01
+
+### Added
+* v in front of version number - [a914401](https://github.com/pivotal/LicenseFinder/commit/a914401965c9d7d924eb70e5e5e497e3dbfc97a0) 
+
+* Added prepare step for elixir projects - [38b08ea](https://github.com/pivotal/LicenseFinder/commit/38b08eae23b6b0c2bbaa3aea7845ab6a8d9b028b) - Li Tai
+
+### Fixed
+* - [b38a399](https://github.com/pivotal/LicenseFinder/commit/b38a3996c06a4118559b1cdb67c5c7c8b428834e) 
+* Branch location - [75f9407](https://github.com/pivotal/LicenseFinder/commit/75f9407e4d4503f6a3632365312ab4b7fb5b2b80) 
+* cleanup - [fe955f8](https://github.com/pivotal/LicenseFinder/commit/fe955f81a0baacd598c645f0096386b2928b52c2) 
+* Credentials Issue - [f81d4dd](https://github.com/pivotal/LicenseFinder/commit/f81d4ddc70fd642dc0deae451da869e89ab8ad68) 
+* Directory issue - [6e39940](https://github.com/pivotal/LicenseFinder/commit/6e39940ad00392c13c8700b42e107987350b0e40) 
+* Disable host checking - [07021cc](https://github.com/pivotal/LicenseFinder/commit/07021cc400c3b495b7d504d3c00486e890867de8) 
+* Incorrect directory - [6d61123](https://github.com/pivotal/LicenseFinder/commit/6d6112316c80e2501cb4fdc51973736257bc0214) 
+* Make ssh dir - [201e4d8](https://github.com/pivotal/LicenseFinder/commit/201e4d809d06b680aded0020d1e552f68e9dedb1) 
+* pushing of branches - [6b23c05](https://github.com/pivotal/LicenseFinder/commit/6b23c0524d520bd8c9bb9d0a5b8ee4a3aad68cda) 
+* Remove push - [2d50e85](https://github.com/pivotal/LicenseFinder/commit/2d50e852d83f568d3b5d182eeb929676e8df3566) 
+* Ruby command not found - [5a194dd](https://github.com/pivotal/LicenseFinder/commit/5a194dda7c7abbecbebcfe839bc3112dff13d627) 
+* Test - [0af1ec0](https://github.com/pivotal/LicenseFinder/commit/0af1ec0e1b72f0551eee4de89ff104ed25b9ae26) 
+* Test - [4a7fd01](https://github.com/pivotal/LicenseFinder/commit/4a7fd01990b97fb3bcbd93a422856e8a567cc606) 
+* Test - [a778b42](https://github.com/pivotal/LicenseFinder/commit/a778b42296d8ebd98fbbaf7a6f6976612ea19028) 
+
+### Changed
+* Add caching - [ccfd8db](https://github.com/pivotal/LicenseFinder/commit/ccfd8db70924e12e212c4ff6b29499d11e246773) 
+* Directory issue - [89c45b8](https://github.com/pivotal/LicenseFinder/commit/89c45b81f1c230ae6ffa3898fc4dc360ba58be9e) 
+* Merge CI scripts - [1fcc07d](https://github.com/pivotal/LicenseFinder/commit/1fcc07d549be7b58ad9feb20ec1443cc1577d222) 
+* Modify cache - [e7e8422](https://github.com/pivotal/LicenseFinder/commit/e7e84226bb39e5d447b421ab9ddfc1d76a87908d) 
+* Update task ymls again - [ad21c4a](https://github.com/pivotal/LicenseFinder/commit/ad21c4a65112633a2d5a960032439b1a38130531) 
+* Update task ymls yet again - [c49906b](https://github.com/pivotal/LicenseFinder/commit/c49906bfbddc64f60b9a641e7633f2ccb70e6f22) 
+* Version number for testing - [fca470a](https://github.com/pivotal/LicenseFinder/commit/fca470af94c5e4b9fa8a498b1274bff743f44a2e) 
+
+### Deprecated
+* scripts - [8c1b3ad](https://github.com/pivotal/LicenseFinder/commit/8c1b3ad5b0661aaba80d9b35d79089f0ccc6f014) 
+
+### Removed
+* Errors - [af2542d](https://github.com/pivotal/LicenseFinder/commit/af2542dd86e864e36a58794429338c0ee0042020) 
+
+### Security
+* So secure - [d836713](https://github.com/pivotal/LicenseFinder/commit/d8367134fb6ed5c930dd6f8d87c06b14c45409c5) 
+
 # [4.0.2] / 2017-11-16
 
 ### Fixed
@@ -519,6 +560,7 @@ Bugfixes:
 [3.0.2]: https://github.com/pivotal/LicenseFinder/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/pivotal/LicenseFinder/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/pivotal/LicenseFinder/compare/v2.1.2...v3.0.0
+[4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
 [4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
 [4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
 [4.0.3]: https://github.com/pivotal/LicenseFinder/compare/v4.0.2...v4.0.3
