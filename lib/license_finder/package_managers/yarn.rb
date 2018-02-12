@@ -1,20 +1,27 @@
 module LicenseFinder
   class Yarn < PackageManager
-    SHELL_COMMAND = 'yarn licenses list --no-progress --json'.freeze
+    class << self
+      attr_writer :shell_command
+
+      def shell_command
+        @shell_command = 'yarn licenses ls --no-progress --json'
+      end
+    end
 
     def possible_package_paths
       [project_path.join('yarn.lock')]
     end
 
     def current_packages
-      cmd = "#{Yarn::SHELL_COMMAND}#{production_flag}"
+      cmd    = "#{self.class.shell_command}#{production_flag}"
       suffix = " --cwd #{project_path}" unless project_path.nil?
-      cmd += suffix unless suffix.nil?
+      cmd    += suffix unless suffix.nil?
 
       stdout, _stderr, status = Cmd.run(cmd)
+      # stdout, _stderr, status = Open3.capture3(cmd)
       return [] unless status.success?
 
-      packages = []
+      packages              = []
       incompatible_packages = []
 
       json_strings = stdout.split("\n")
@@ -22,7 +29,7 @@ module LicenseFinder
 
       if json_objects.last['type'] == 'table'
         license_json = json_objects.pop['data']
-        packages = packages_from_json(license_json)
+        packages     = packages_from_json(license_json)
       end
 
       json_objects.each do |json_object|
@@ -37,7 +44,7 @@ module LicenseFinder
     end
 
     def prepare
-      prep_cmd = "#{Yarn.prepare_command}#{production_flag}"
+      prep_cmd                = "#{Yarn.prepare_command}#{production_flag}"
       _stdout, stderr, status = Dir.chdir(project_path) { Cmd.run(prep_cmd) }
       return if status.success?
       log_errors stderr
