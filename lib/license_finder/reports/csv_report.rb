@@ -2,18 +2,22 @@ require 'csv'
 
 module LicenseFinder
   class CsvReport < Report
-    COMMA_SEP = ','.freeze
-    AVAILABLE_COLUMNS = %w[name version authors licenses license_links approved summary description homepage install_path package_manager groups].freeze
+    COMMA_SEP               = ','.freeze
+    AVAILABLE_COLUMNS       = %w[project_name name version authors licenses license_links approved summary description homepage install_path package_manager groups].freeze
     MISSING_DEPENDENCY_TEXT = 'This package is not installed. Please install to determine licenses.'.freeze
 
     def initialize(dependencies, options)
       super
-      options[:columns] ||= %w[name version licenses]
+
+      @project_name     = options[:project_name]
+      options[:columns] ||= %w[project_name name version licenses license_links summary homepage package_manager groups]
+      options[:columns].delete('project_name') unless @project_name
       @columns = Array(options[:columns]) & self.class::AVAILABLE_COLUMNS
     end
 
     def to_s
       CSV.generate(col_sep: self.class::COMMA_SEP) do |csv|
+        csv << @columns
         sorted_dependencies.each do |s|
           csv << format_dependency(s)
         end
@@ -26,6 +30,10 @@ module LicenseFinder
       @columns.map do |column|
         send("format_#{column}", dep)
       end
+    end
+
+    def format_project_name(_dep)
+      @project_name
     end
 
     def format_name(dep)
